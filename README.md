@@ -1,6 +1,6 @@
 # PrawnRailsForms
 
-TODO: what even is this
+A simple extension to PrawnRails, allowing you to specify dynamically filled forms in terms of their layout on the page.
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
     $ gem install prawn-rails-forms
 
-TODO: adding to prawn rails initializer file
+Then, anywhere in the `config/initializers/prawn_rails.rb` file specified by [the PrawnRails docs](https://github.com/cortiz/prawn-rails), add:
+
+```ruby
+include PrawnRailsForms
+```
 
 ## Usage
 
