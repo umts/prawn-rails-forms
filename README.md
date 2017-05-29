@@ -139,7 +139,7 @@ Check box fields must have `field`, `options`, and `checked` attributes specifie
 
 `checked` is the Array, of equal size to `options`, of booleans specifying whether each option should be checked.
 
-```
+```ruby
 vegetables = %w[celery asparagus yams]
 pdf.check_box_field field: 'Favorite vegetables',
   options: vegetables,
@@ -148,7 +148,7 @@ pdf.check_box_field field: 'Favorite vegetables',
 
 You can optionally specify the width of the field, in the subunits into which the row is divided:
 
-```
+```ruby
 pdf.check_box_field field: 'Favorite vegetables'
   options: vegetables,
   checked: vegetables.map{ |v| @user.likes? v },
@@ -157,7 +157,7 @@ pdf.check_box_field field: 'Favorite vegetables'
 
 Or the height, in points. Default is the row height.
 
-```
+```ruby
 pdf.check_box_field field: 'Favorite vegetables'
   options: vegetables,
   checked: vegetables.map{ |v| @user.likes? v },
@@ -166,7 +166,7 @@ pdf.check_box_field field: 'Favorite vegetables'
 
 In the event that you would like multiple columns of checkboxes, you can specify the number of checkboxes which should occur in a column (default is 3):
 
-```
+```ruby
 pdf.check_box_field field: 'Favorite vegetables',
   options: vegetables,
   checked: vegetables.map{ |v| @user.likes? v },
@@ -185,7 +185,7 @@ The easiest way to apprach this is to complete the top line (the fields which al
 pdf.field_row height: 75, units: 8 do
   # ...
   pdf.at_row_height 25 do
-    pdf.text_field
+    pdf.text_field # ...
   end
 end
 ```
