@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = PrawnRailsForms::VERSION
   spec.authors       = ["UMass Transportation Services"]
   spec.email         = ["transit-it@admin.umass.edu"]
+  spec.licenses      = ['MIT']
 
   spec.summary       = %q{An extension to PrawnRails, making form layouts easier.}
   spec.homepage      = "https://github.com/umts/prawn-rails-forms"
