@@ -30,15 +30,13 @@ module PrawnRailsForms
     end
 
     def at_row_height(height, options = {}, &block)
-      if @row_helper.present?
-        @row_helper.y -= height
-        if options[:unit].present?
-          @row_helper.x = options[:unit] * @row_helper.unit_width
-        end
-        block.call
-        @row_helper.y += height
-      else raise ArgumentError, 'Must be within a field row'
+      raise ArgumentError, 'Must be within a field row' unless @row_helper.present?
+      @row_helper.y -= height
+      if options[:unit].present?
+        @row_helper.x = options[:unit] * @row_helper.unit_width
       end
+      block.call
+      @row_helper.y += height
     end
 
     def text_field(**args)
