@@ -1,9 +1,8 @@
-require "prawn-rails-forms/version"
-
+require 'prawn-rails-forms/version'
 require 'prawn-rails'
 
 module PrawnRailsForms
-  class RowHelper
+  class FieldRow
     attr_accessor :height, :units, :x, :y, :unit_width
     
     def initialize(height, units, x, y, unit_width)
@@ -20,30 +19,29 @@ module PrawnRailsForms
   end
 
   class PrawnRails::Document
-    attr_accessor :row_helper
+    attr_accessor :field_row
 
     def field_row(height:, units:, &block)
-      @row_helper = RowHelper.new height, units,
-        0, cursor, bounds.width / units
+      @field_row = FieldRow.new height, units, 0, cursor, bounds.width / units
       block.call
-      @row_helper = nil
+      @field_row = nil
     end
 
     def at_row_height(height, options = {}, &block)
-      raise ArgumentError, 'Must be within a field row' unless @row_helper.present?
-      @row_helper.y -= height
+      raise ArgumentError, 'Must be within a field row' unless @field_row.present?
+      @field_row.y -= height
       if options[:unit].present?
-        @row_helper.x = options[:unit] * @row_helper.unit_width
+        @field_row.x = options[:unit] * @field_row.unit_width
       end
       block.call
-      @row_helper.y += height
+      @field_row.y += height
     end
 
     def text_field(**args)
-      raise ArgumentError, 'Must be within a field row' unless @row_helper.present?
-      start, width, height = @row_helper.field_attributes args
+      raise ArgumentError, 'Must be within a field row' unless @field_row.present?
+      start, width, height = @field_row.field_attributes args
       make_text_field start, width, height, **args.except(:width, :height)
-      @row_helper.x += width if @row_helper.present?
+      @field_row.x += width if @field_row.present?
     end
 
     def make_text_field(start, width, height, field:, value:, options: {})
@@ -73,10 +71,10 @@ module PrawnRailsForms
     end
     
     def check_box_field(**args)
-      raise ArgumentError, 'Must be within a field row' unless @row_helper.present?
-      start, width, height = @row_helper.field_attributes args
+      raise ArgumentError, 'Must be within a field row' unless @field_row.present?
+      start, width, height = @field_row.field_attributes args
       make_check_box_field start, width, height, **args.except(:width, :height)
-      @row_helper.x += width if @row_helper.present?
+      @field_row.x += width if @field_row.present?
     end
 
     def make_check_box_field(start, width, height, field:, options:, checked:, per_column: 3)
