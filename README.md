@@ -125,6 +125,15 @@ pdf.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
   options: { valign: :center }
 ```
 
+And of course, you can combine any or all of the above:
+
+```ruby
+pdf.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
+  width: 3, height: 30,
+  options: {  align: :left, valign: :center, size: 8,
+              if: @user.likes_fruit?, unless: @user.hates_fruit? }
+```
+
 ### Check box fields
 
 For selecting one of a group of options (the equivalent of an HTML select tag), you can have check box fields, e.g.:
