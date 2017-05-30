@@ -39,7 +39,7 @@ Rows must have a height specified, in points.
 Fields cannot be created outside of rows.
 For instance, say we want to create the following row of a form:
 
-TODO: image
+![1](https://cloud.githubusercontent.com/assets/3988134/26561634/e6028f68-448d-11e7-800a-93e3aca2db6a.png)
 
 Then this row will be subdivided into 8 units. We specify this with:
 
@@ -129,7 +129,7 @@ pdf.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
 
 For selecting one of a group of options (the equivalent of an HTML select tag), you can have check box fields, e.g.:
 
-TODO: image
+![2](https://cloud.githubusercontent.com/assets/3988134/26561635/e603f628-448d-11e7-8af8-6ced6a729cd5.png)
 
 Check box fields must have `field`, `options`, and `checked` attributes specified.
 
@@ -177,7 +177,7 @@ pdf.check_box_field field: 'Favorite vegetables',
 
 Say we want the following layout:
 
-TODO: image
+![3](https://cloud.githubusercontent.com/assets/3988134/26561633/e601874e-448d-11e7-8951-2f8627285a63.png)
 
 The easiest way to apprach this is to complete the top line (the fields which all touch the top of the row), and then to go back and do the first field which does not.
 
