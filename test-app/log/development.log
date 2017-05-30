@@ -921,3 +921,10 @@ Processing by PdfController#static.pdf as HTML
 Completed 200 OK in 52ms (Views: 51.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-05-30 14:58:06 -0400
+Processing by PdfController#static.pdf as HTML
+  Rendering pdf/static.pdf.prawn
+  Rendered pdf/static.pdf.prawn (91.1ms)
+Completed 200 OK in 95ms (Views: 94.1ms)
+
+

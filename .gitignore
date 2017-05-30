@@ -1,1 +1,4 @@
 /*.gem
+
+/test-app/log
+/test-app/tmp
