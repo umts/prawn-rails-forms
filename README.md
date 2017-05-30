@@ -108,7 +108,7 @@ Or a condition which you want to be false:
 
 ```ruby
 pdf.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
-  options: { if: @user.hates_fruit? }
+  options: { unless: @user.hates_fruit? }
 ```
 
 You can change how you want the text to be aligned horizontally. Default is center.
