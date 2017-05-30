@@ -10,13 +10,13 @@ module PrawnRailsForms
         document, height, units, x, y, unit_width
     end
 
-    def at_row_height(height, options = {}, &block)
+    def at_height(height, options = {}, &block)
       @y -= height
       if options[:unit].present?
         @x = options[:unit] * @unit_width
       end
       block.call
-      @field_row.y += height
+      @y += height
     end
 
     def text_field(**args)
@@ -75,7 +75,6 @@ module PrawnRailsForms
         end
       end
     end
-    
 
     def make_check_box_field(start, width, height, field:, options:, checked:, per_column: 3)
       bounding_box start, width: width, height: height do
