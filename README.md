@@ -49,7 +49,7 @@ pdf.field_row height: 25, units: 8 do |row|
 end
 ```
 
-Then we specify the fields in terms of how many units they take up, what their name should be, and what variable should be dynamically filled into this space.
+Then we specify the fields in terms of width (i.e., how many units they take up), what their name should be, and what variable should be dynamically filled into this space.
 
 For example, the first field in the image above would be:
 
