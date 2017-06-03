@@ -1,33 +1,35 @@
+# frozen_string_literal: true
+
 module PrawnRailsForms
   class FieldRow
     attr_accessor :document, :height, :units, :x, :y, :unit_width
 
-    def initialize(document,height, units, x, y, unit_width)
-      @document, @height, @units, @x, @y, @unit_width = 
+    def initialize(document, height, units, x, y, unit_width)
+      @document, @height, @units, @x, @y, @unit_width =
         document, height, units, x, y, unit_width
     end
 
-    def at_height(height, options = {}, &block)
+    def at_height(height, options = {})
       @y -= height
-      if options[:unit].present?
-        @x = options[:unit] * @unit_width
-      end
-      block.call
+      @x = options[:unit] * @unit_width if options[:unit].present?
+      yield
       @y += height
     end
 
     def text_field(**args)
       start, width, height = field_attributes args
-      @document.send :make_text_field, start, width, height, **args.except(:width, :height)
+      @document.send :make_text_field, start, width, height,
+                     **args.except(:width, :height)
       @x += width
     end
 
     def check_box_field(**args)
       start, width, height = field_attributes args
-      @document.send :make_check_box_field, start, width, height, **args.except(:width, :height)
+      @document.send :make_check_box_field, start, width, height,
+                     **args.except(:width, :height)
       @x += width
     end
-    
+
     private
 
     def field_attributes(args)

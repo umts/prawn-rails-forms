@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'prawn-rails-forms/field_row'
 
 module PrawnRailsForms
   module DocumentExtensions
-    def field_row(height:, units:, &block)
+    def field_row(height:, units:)
       unit_width = bounds.width / units
       yield FieldRow.new(self, height, units, 0, cursor, unit_width)
     end
