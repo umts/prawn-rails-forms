@@ -1,0 +1,18 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - test-app/**/*
+
+# Public docs are sufficient (for now).
+Style/Documentation:
+  Enabled: false
+
+# This has to match the gem name.
+Style/FileName:
+  Exclude:
+    - lib/prawn-rails-forms.rb
+
+# I don't see the benefit of blacklisting an entire language feature.
+Style/ParallelAssignment:
+  Enabled: false
+
