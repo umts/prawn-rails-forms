@@ -125,6 +125,13 @@ row.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
   options: { valign: :center }
 ```
 
+You can also change the font style.
+
+```ruby
+row.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
+  options: { style: :italic }
+```
+
 And of course, you can combine any or all of the above:
 
 ```ruby
