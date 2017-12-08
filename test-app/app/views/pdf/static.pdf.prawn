@@ -8,7 +8,7 @@ prawn_document do |pdf|
       size: 10, valign: :bottom, align: :center
   end
   pdf.bounding_box [unit_width, y], height: 20, width: unit_width * 2 do
-    pdf.text_box 'This should be twice as long as the others',
+    pdf.text_box 'This should be twice as long as the others, and bold',
       size: 10, valign: :bottom, align: :center
   end
   pdf.bounding_box [unit_width * 3, y], height: 20, width: unit_width do
@@ -23,7 +23,7 @@ prawn_document do |pdf|
   pdf.field_row height: 30, units: 5 do |row|
     row.text_field field: 'Favorite fruit', value: 'Bananas!'
     row.text_field field: 'Longer bananas?', value: 'Absolutely.',
-      width: 2
+      width: 2, options: { style: :bold }
     row.text_field field: 'Bigger bananas?', value: 'Yes!',
       options: { size: 14 }
     row.text_field field: 'Smaller bananas?', value: 'If you must',

@@ -22,6 +22,7 @@ module PrawnRailsForms
           unless options[:if] == false || options[:unless] == true
             align = options[:align] || :center
             valign = options[:valign] || :bottom
+            style = options[:style]
             value = value.to_s unless value.is_a? Array
             text = if value.is_a? Array
                      value.join "\n"
@@ -30,7 +31,7 @@ module PrawnRailsForms
             # cursor is current y position
             bounding_box [0, cursor], width: bounds.width do
               text_box text, align: align, size: text_size, valign: valign,
-                             overflow: :ellipses
+                             overflow: :ellipses, style: style
             end
           end
         end
