@@ -30,7 +30,7 @@ prawn_document do |pdf|
       height: 25
   end
 
-  pdf.move_down 70
+  pdf.move_down 30
   pdf.text 'Text boxes - conditional display options',
     align: :center, size: 14
   unit_width = pdf.bounds.width / 4
@@ -53,7 +53,7 @@ prawn_document do |pdf|
       options: { unless: true }
   end
 
-  pdf.move_down 70
+  pdf.move_down 30
   pdf.text 'Check boxes',
     align: :center, size: 14
   unit_width = pdf.bounds.width / 5
@@ -88,10 +88,9 @@ prawn_document do |pdf|
       checked: numbers.map(&:even?), per_column: 2
   end
 
-  pdf.move_down 70
+  pdf.move_down 30
   pdf.text 'Splitting rows',
     align: :center, size: 14
-  pdf.move_down 10
   pdf.text 'This should look as expected', size: 10, align: :center
 
   pdf.field_row height: 50, units: 2 do |row|
@@ -105,4 +104,18 @@ prawn_document do |pdf|
     end
   end
 
+  PrawnRailsForms.default_text_field_options = { style: :bold }
+
+  pdf.move_down 30
+  pdf.text 'Global options', align: :center, size: 14
+  pdf.text "These should all be bold", size: 10, align: :center
+
+  pdf.field_row height: 30, units: 6 do |row|
+    row.text_field field: 'Do',     value: 'I'
+    row.text_field field: 'you',    value: 'like'
+    row.text_field field: 'like',   value: 'all'
+    row.text_field field: 'all',    value: 'kinds'
+    row.text_field field: 'the',    value: 'of'
+    row.text_field field: 'fruit?', value: 'fruits!'
+  end
 end
