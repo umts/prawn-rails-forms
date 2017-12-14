@@ -141,6 +141,12 @@ row.text_field field: 'Favorite fruit', value: @user.favorite_fruit,
               if: @user.likes_fruit?, unless: @user.hates_fruit? }
 ```
 
+If you have options which you wish to apply to *all* of your text fields, you can set them globally:
+```ruby
+PrawnRailsForms.default_text_field_options = { style: :bold }
+```
+Following which any invocations of `row.text_field` will have those options applied, except where you manually override them.
+
 ### Check box fields
 
 For selecting one of a group of options (the equivalent of an HTML select tag), you can have check box fields, e.g.:
