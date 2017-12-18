@@ -11,7 +11,7 @@ module PrawnRailsForms
   end
 
   def default_text_field_options
-    @options || {}
+    @options ||= {}
   end
 end
 
