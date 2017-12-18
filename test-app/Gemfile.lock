@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    prawn-rails-forms (0.1.1)
+    prawn-rails-forms (0.1.2)
       prawn-rails (~> 1.0)
 
 GEM
@@ -153,4 +153,4 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0

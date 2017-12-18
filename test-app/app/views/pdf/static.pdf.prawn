@@ -108,7 +108,7 @@ prawn_document do |pdf|
 
   pdf.move_down 30
   pdf.text 'Global options', align: :center, size: 14
-  pdf.text "These should all be bold", size: 10, align: :center
+  pdf.text "These should all be bold, except the last one", size: 10, align: :center
 
   pdf.field_row height: 30, units: 6 do |row|
     row.text_field field: 'Do',     value: 'I'
@@ -116,6 +116,7 @@ prawn_document do |pdf|
     row.text_field field: 'like',   value: 'all'
     row.text_field field: 'all',    value: 'kinds'
     row.text_field field: 'the',    value: 'of'
-    row.text_field field: 'fruit?', value: 'fruits!'
+    row.text_field field: 'fruit?', value: 'fruits!',
+      options: { style: :italic }
   end
 end
