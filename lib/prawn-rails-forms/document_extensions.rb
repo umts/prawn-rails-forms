@@ -12,6 +12,7 @@ module PrawnRailsForms
     private
 
     def make_text_field(start, width, height, field:, value:, options: {})
+      options.reverse_merge! PrawnRailsForms.default_text_field_options
       bounding_box start, width: width, height: height do
         stroke_bounds
         bounds.add_left_padding 2

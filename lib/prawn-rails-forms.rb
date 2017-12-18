@@ -6,6 +6,13 @@ require 'prawn-rails-forms/version'
 require 'prawn-rails'
 
 module PrawnRailsForms
+  def default_text_field_options=(options)
+    @options = options
+  end
+
+  def default_text_field_options
+    @options ||= {}
+  end
 end
 
 module PrawnRails
