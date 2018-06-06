@@ -2,3 +2,4 @@
 
 /test-app/log/*
 /test-app/tmp/*
+Gemfile.lock
