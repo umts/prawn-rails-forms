@@ -12,28 +12,12 @@ module PrawnRailsForms
     private
 
     def make_text_field(start, width, height, field:, value:, options: {})
-      options.reverse_merge! PrawnRailsForms.default_text_field_options
       bounding_box start, width: width, height: height do
-        stroke_bounds
-        bounds.add_left_padding 2
-        move_down 2
-        text field.upcase, size: 6
-        text_size = options[:size] || 10
-        if value.present?
-          unless options[:if] == false || options[:unless] == true
-            align = options[:align] || :center
-            valign = options[:valign] || :bottom
-            style = options[:style]
-            value = value.to_s unless value.is_a? Array
-            text = if value.is_a? Array
-                     value.join "\n"
-                   else value.to_s
-                   end
-            # cursor is current y position
-            bounding_box [0, cursor], width: bounds.width do
-              text_box text, align: align, size: text_size, valign: valign,
-                             overflow: :ellipses, style: style
-            end
+        make_field_box field
+        if value.present? && options[:if] != false && options[:unless] != true
+          # cursor is current y position
+          bounding_box [0, cursor], width: bounds.width do
+            text_box text_field_text(value), text_field_options(options)
           end
         end
       end
@@ -41,10 +25,7 @@ module PrawnRailsForms
 
     def make_check_box_field(start, width, height, field:, options:, checked:, per_column: 3)
       bounding_box start, width: width, height: height do
-        stroke_bounds
-        bounds.add_left_padding 2
-        move_down 2
-        text field.upcase, size: 6
+        make_field_box field
         move_down 2
         box_height = cursor
         box_width = (width - 4) / options.each_slice(per_column).count
@@ -57,11 +38,11 @@ module PrawnRailsForms
               overall_index = i * per_column + j
               make_check_box checked: checked[overall_index], text: opt
               move_down 2
-            end # each option
-          end # options bounding box
-        end # each set of options
-      end # field bounding box
-    end # method definition
+            end
+          end
+        end
+      end
+    end
 
     def make_check_box(checked:, text:)
       box_y = cursor
@@ -74,6 +55,29 @@ module PrawnRailsForms
       end
       bounding_box [9, box_y], width: bounds.width - 9, height: 10 do
         text text, size: 10
+      end
+    end
+
+    def make_field_box(field)
+      stroke_bounds
+      bounds.add_left_padding 2
+      move_down 2
+      text field.upcase, size: 6
+    end
+
+    def text_field_options(options)
+      {
+        size: 10,
+        align: :center,
+        valign: :bottom,
+        overflow: :ellipses
+      }.merge(PrawnRailsForms.default_text_field_options).merge(options)
+    end
+
+    def text_field_text(value)
+      if value.is_a? Array
+        value.join "\n"
+      else value.to_s
       end
     end
   end
