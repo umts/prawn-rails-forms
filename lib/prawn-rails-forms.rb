@@ -6,17 +6,13 @@ require 'prawn-rails-forms/version'
 require 'prawn-rails'
 
 module PrawnRailsForms
-  def default_text_field_options=(options)
-    @options = options
+  def self.default_text_field_options=(options)
+    @default_text_field_options = options
   end
 
-  def default_text_field_options
-    @options ||= {}
+  def self.default_text_field_options
+    @default_text_field_options ||= {}
   end
 end
 
-module PrawnRails
-  class Document
-    include PrawnRailsForms::DocumentExtensions
-  end
-end
+PrawnRails::Document.send(:include, PrawnRailsForms::DocumentExtensions)
