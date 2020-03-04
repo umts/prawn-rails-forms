@@ -4,10 +4,13 @@ module PrawnRailsForms
   class FieldRow
     attr_accessor :document, :height, :units, :x, :y, :unit_width
 
+    # 'x' and 'y' are easily understood in this context
+    # rubocop:disable Naming/UncommunicativeMethodParamName
     def initialize(document, height, units, x, y, unit_width)
       @document, @height, @units, @x, @y, @unit_width =
         document, height, units, x, y, unit_width
     end
+    # rubocop:enable Naming/UncommunicativeMethodParamName
 
     def at_height(height, options = {})
       @y -= height
