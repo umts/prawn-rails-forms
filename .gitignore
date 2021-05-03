@@ -1,5 +1,5 @@
 /*.gem
 
-/test-app/log/*
-/test-app/tmp/*
+/log/*
+/tmp/*
 Gemfile.lock
