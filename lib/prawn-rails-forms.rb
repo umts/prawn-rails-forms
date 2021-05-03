@@ -15,4 +15,4 @@ module PrawnRailsForms
   end
 end
 
-PrawnRails::Document.send(:include, PrawnRailsForms::DocumentExtensions)
+PrawnRails::Document.include PrawnRailsForms::DocumentExtensions
