@@ -5,12 +5,12 @@ module PrawnRailsForms
     attr_accessor :document, :height, :units, :x, :y, :unit_width
 
     # 'x' and 'y' are easily understood in this context
-    # rubocop:disable Naming/UncommunicativeMethodParamName
+    # rubocop:disable Naming/MethodParameterName
     def initialize(document, height, units, x, y, unit_width)
       @document, @height, @units, @x, @y, @unit_width =
         document, height, units, x, y, unit_width
     end
-    # rubocop:enable Naming/UncommunicativeMethodParamName
+    # rubocop:enable Naming/MethodParameterName
 
     def at_height(height, options = {})
       @y -= height
