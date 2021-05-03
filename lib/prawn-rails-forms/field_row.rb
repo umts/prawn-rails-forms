@@ -7,8 +7,12 @@ module PrawnRailsForms
     # 'x' and 'y' are easily understood in this context
     # rubocop:disable Naming/MethodParameterName
     def initialize(document, height, units, x, y, unit_width)
-      @document, @height, @units, @x, @y, @unit_width =
-        document, height, units, x, y, unit_width
+      @document = document
+      @height = height
+      @units = units
+      @x = x
+      @y = y
+      @unit_width = unit_width
     end
     # rubocop:enable Naming/MethodParameterName
 
