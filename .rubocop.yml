@@ -1,7 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.5
-  Exclude:
-    - test-app/**/*
   NewCops: enable
 
 # Public docs are sufficient (for now).
