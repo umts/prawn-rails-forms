@@ -253,11 +253,16 @@ This would start a new field 25 points from the top, halfway through the row.
 
 ## Development
 
-There's a test rails app in `test-app/`. Bundle and boot it up, and the root
-page should show you a fairly self-explanatory static PDF.
+There's a test rails app in `test_app.rb`. Bundle and boot it up:
+
+```
+bundle exec rackup
+```
+
+and the root page should show you a fairly self-explanatory static PDF.
 
 New functionality would ideally be coupled with new 'test cases' in
-`app/views/pdf/static.pdf.prawn`.
+`pdf/static.pdf.prawn`.
 
 ## Contributing
 

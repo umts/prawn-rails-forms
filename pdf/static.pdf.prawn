@@ -120,3 +120,5 @@ prawn_document do |pdf|
       options: { style: :italic }
   end
 end
+
+# vim: filetype=ruby

@@ -1,9 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'rails', '~> 6.0'
-gem 'prawn-rails-forms', path: '../'
-
-group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'pry-byebug'
-end
