@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.5.0'
   spec.add_dependency 'prawn-rails', '~> 1.0'
 
-  spec.add_development_dependency 'bundler', '~> 2.1.2'
+  spec.add_development_dependency 'bundler', '~> 2.2.18'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 1.13'
 end
