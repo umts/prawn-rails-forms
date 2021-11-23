@@ -8,6 +8,7 @@ gemfile do
   rails_version = '~> 6.0'
   gem 'actionpack', rails_version
   gem 'actionview', rails_version
+  gem 'railties', rails_version
 
   gem 'prawn-rails-forms', path: './', require: false
 end

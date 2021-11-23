@@ -19,7 +19,11 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.5.0'
   spec.add_dependency 'prawn-rails', '~> 1.0'
 
+  rails_version = '~> 6.0'
+  spec.add_development_dependency 'actionpack', rails_version
+  spec.add_development_dependency 'actionview', rails_version
   spec.add_development_dependency 'bundler', '~> 2.2.18'
+  spec.add_development_dependency 'railties', rails_version
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 1.13'
 end
